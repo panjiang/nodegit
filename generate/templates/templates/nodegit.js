@@ -4,17 +4,17 @@ var rawApi;
 
 // Attempt to load the production release first, if it fails fall back to the
 // debug release.
-try {
-  rawApi = require("../build/Release/nodegit.node");
-}
-catch (ex) {
-  /* istanbul ignore next */
-  if (ex.code !== "MODULE_NOT_FOUND") {
-    throw ex;
-  }
+// try {
+rawApi = require("../build/Release/nodegit.node");
+// }
+// catch (ex) {
+//   /* istanbul ignore next */
+//   if (ex.code !== "MODULE_NOT_FOUND") {
+//     throw ex;
+//   }
 
-  rawApi = require("../build/Debug/nodegit.node");
-}
+//   rawApi = require("../build/Debug/nodegit.node");
+// }
 
 // For disccussion on why `cloneDeep` is required, see:
 // https://github.com/facebook/jest/issues/3552
