@@ -2256,7 +2256,14 @@
           }
         },
         "git_merge_file": {
-          "ignore": true
+          "args": {
+            "opts": {
+              "isOptional": true
+            },
+            "options": {
+              "isOptional": true
+            }
+          }
         },
         "git_merge_file_from_index": {
           "ignore": true
@@ -2298,7 +2305,7 @@
       "ignore": true
     },
     "merge_file_result": {
-      "ignore": true
+      "ignore": false
     },
     "merge_result": {
       "ignore": true

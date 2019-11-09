@@ -1,7 +1,7 @@
 {
   "name": "pj-nodegit",
   "description": "Node.js libgit2 asynchronous native bindings",
-  "version": "0.26.2",
+  "version": "0.26.3",
   "homepage": "http://nodegit.org",
   "keywords": [
     "libgit2",
@@ -83,6 +83,7 @@
     "lint": "jshint lib test/tests test/utils examples lifecycleScripts",
     "mergecov": "lcov-result-merger 'test/**/*.info' 'test/coverage/merged.lcov' && ./lcov-1.10/bin/genhtml test/coverage/merged.lcov --output-directory test/coverage/report",
     "mocha": "mocha --expose-gc test/runner test/tests --timeout 15000",
+    "mocha1": "mocha test/mergefile",
     "mochaDebug": "mocha --expose-gc --debug-brk test/runner test/tests --timeout 15000",
     "postinstall": "node lifecycleScripts/postinstall",
     "prepublish": "npm run babel",
