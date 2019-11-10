@@ -89,8 +89,7 @@
       "ignore": true
     }
   },
-  "types":
-  {
+  "types": {
     "allocator": {
       "ignore": true
     },
@@ -107,22 +106,30 @@
         },
         "git_annotated_commit_from_ref": {
           "return": {
-            "ownedBy": ["repo"]
+            "ownedBy": [
+              "repo"
+            ]
           }
         },
         "git_annotated_commit_from_fetchhead": {
           "return": {
-            "ownedBy": ["repo"]
+            "ownedBy": [
+              "repo"
+            ]
           }
         },
         "git_annotated_commit_lookup": {
           "return": {
-            "ownedBy": ["repo"]
+            "ownedBy": [
+              "repo"
+            ]
           }
         },
         "git_annotated_commit_from_revspec": {
           "return": {
-            "ownedBy": ["repo"]
+            "ownedBy": [
+              "repo"
+            ]
           }
         }
       }
@@ -167,14 +174,18 @@
         "git_blame_buffer": {
           "args": {
             "out": {
-              "ownedBy": ["reference"]
+              "ownedBy": [
+                "reference"
+              ]
             }
           }
         },
         "git_blame_file": {
           "args": {
             "out": {
-              "ownedBy": ["repo"]
+              "ownedBy": [
+                "repo"
+              ]
             },
             "options": {
               "isOptional": true
@@ -419,14 +430,14 @@
               "isOptional": true
             }
           },
-          "return" : {
+          "return": {
             "isReturn": true,
             "isErrorCode": true
           }
         },
         "git_branch_upstream": {
           "isAsync": true,
-          "return" : {
+          "return": {
             "isReturn": true,
             "isErrorCode": true
           }
@@ -1027,7 +1038,9 @@
         "git_config_iterator_new": {
           "args": {
             "out": {
-              "ownedBy": ["cfg"]
+              "ownedBy": [
+                "cfg"
+              ]
             }
           },
           "return": {
@@ -1038,7 +1051,9 @@
           "jsFunctionName": "createGlob",
           "args": {
             "out": {
-              "ownedBy": ["cfg"]
+              "ownedBy": [
+                "cfg"
+              ]
             }
           },
           "return": {
@@ -1049,7 +1064,9 @@
           "jsFunctionName": "createMultivar",
           "args": {
             "out": {
-              "ownedBy": ["cfg"]
+              "ownedBy": [
+                "cfg"
+              ]
             }
           },
           "return": {
@@ -1140,41 +1157,41 @@
       "functions": {
         "git_diff_blob_to_buffer": {
           "args": {
-            "old_blob" : {
+            "old_blob": {
               "isOptional": true
             },
-            "old_as_path" : {
+            "old_as_path": {
               "isOptional": true
             },
-            "buffer" : {
+            "buffer": {
               "isOptional": true
             },
-            "buffer_len" : {
+            "buffer_len": {
               "isOptional": true
             },
-            "buffer_as_path" : {
+            "buffer_as_path": {
               "isOptional": true
             },
-            "options" : {
+            "options": {
               "isOptional": true
             },
-            "file_cb" : {
+            "file_cb": {
               "isOptional": true
             },
             "binary_cb": {
               "isOptional": true
             },
-            "hunk_cb" : {
+            "hunk_cb": {
               "isOptional": true
             },
-            "line_cb" : {
+            "line_cb": {
               "isOptional": true
             }
           },
           "return": {
             "isErrorCode": true
           },
-         "isAsync": true
+          "isAsync": true
         },
         "git_diff_blobs": {
           "ignore": true
@@ -1255,14 +1272,18 @@
         "git_diff_index_to_index": {
           "args": {
             "diff": {
-              "ownedBy": ["repo"]
+              "ownedBy": [
+                "repo"
+              ]
             }
           }
         },
         "git_diff_index_to_workdir": {
           "args": {
             "diff": {
-              "ownedBy": ["repo"]
+              "ownedBy": [
+                "repo"
+              ]
             },
             "index": {
               "isOptional": true
@@ -1329,7 +1350,9 @@
         "git_diff_tree_to_index": {
           "args": {
             "diff": {
-              "ownedBy": ["repo"]
+              "ownedBy": [
+                "repo"
+              ]
             },
             "old_tree": {
               "isOptional": true
@@ -1345,7 +1368,9 @@
         "git_diff_tree_to_tree": {
           "args": {
             "diff": {
-              "ownedBy": ["repo"]
+              "ownedBy": [
+                "repo"
+              ]
             },
             "old_tree": {
               "isOptional": true
@@ -1361,7 +1386,9 @@
         "git_diff_tree_to_workdir": {
           "args": {
             "diff": {
-              "ownedBy": ["repo"]
+              "ownedBy": [
+                "repo"
+              ]
             },
             "old_tree": {
               "isOptional": true
@@ -1374,7 +1401,9 @@
         "git_diff_tree_to_workdir_with_index": {
           "args": {
             "diff": {
-              "ownedBy": ["repo"]
+              "ownedBy": [
+                "repo"
+              ]
             },
             "old_tree": {
               "isOptional": true
@@ -1745,15 +1774,21 @@
           "args": {
             "ancestor_out": {
               "isReturn": true,
-              "ownedBy": ["index"]
+              "ownedBy": [
+                "index"
+              ]
             },
             "our_out": {
               "isReturn": true,
-              "ownedBy": ["index"]
+              "ownedBy": [
+                "index"
+              ]
             },
             "their_out": {
               "isReturn": true,
-              "ownedBy": ["index"]
+              "ownedBy": [
+                "index"
+              ]
             }
           },
           "isAsync": true,
@@ -1894,13 +1929,13 @@
           "return": {
             "isErrorCode": true
           }
-   	    },
-	      "git_index_write": {
-	        "args": {
-	          "force": {
-	            "isOptional": true
-	          }
-	        },
+        },
+        "git_index_write": {
+          "args": {
+            "force": {
+              "isOptional": true
+            }
+          },
           "isAsync": true,
           "return": {
             "isErrorCode": true
@@ -1933,7 +1968,9 @@
         "git_index_conflict_iterator_new": {
           "args": {
             "iterator_out": {
-              "ownedBy": ["index"]
+              "ownedBy": [
+                "index"
+              ]
             }
           }
         },
@@ -1972,7 +2009,9 @@
         "git_index_iterator_new": {
           "args": {
             "iterator_out": {
-              "ownedBy": ["index"]
+              "ownedBy": [
+                "index"
+              ]
             }
           }
         },
@@ -2123,7 +2162,9 @@
         "git_mailmap_from_repository": {
           "args": {
             "out": {
-              "ownedBy": ["repo"]
+              "ownedBy": [
+                "repo"
+              ]
             }
           },
           "return": {
@@ -2257,12 +2298,16 @@
         },
         "git_merge_file": {
           "args": {
+            "out": {
+              "isReturn": true,
+              "shouldAlloc": true
+            },
             "opts": {
               "isOptional": true
-            },
-            "options": {
-              "isOptional": true
             }
+          },
+          "return": {
+            "isErrorCode": true
           }
         },
         "git_merge_file_from_index": {
@@ -2718,7 +2763,9 @@
         "git_patch_from_diff": {
           "isAsync": true,
           "return": {
-            "ownedBy": ["diff"]
+            "ownedBy": [
+              "diff"
+            ]
           }
         },
         "git_patch_get_delta": {
@@ -2796,7 +2843,9 @@
           "isAsync": true,
           "args": {
             "out": {
-              "ownedBy": ["diff"],
+              "ownedBy": [
+                "diff"
+              ],
               "ownedByThis": true
             }
           }
@@ -2805,7 +2854,9 @@
           "isAsync": true,
           "args": {
             "out": {
-              "ownedBy": ["index"],
+              "ownedBy": [
+                "index"
+              ],
               "ownedByThis": true
             }
           }
@@ -2817,7 +2868,9 @@
           "isAsync": true,
           "args": {
             "out": {
-              "ownedBy": ["tree"],
+              "ownedBy": [
+                "tree"
+              ],
               "ownedByThis": true
             }
           }
@@ -2826,7 +2879,9 @@
           "isAsync": true,
           "args": {
             "out": {
-              "ownedBy": ["repo"],
+              "ownedBy": [
+                "repo"
+              ],
               "ownedByThis": true
             }
           }
@@ -2921,7 +2976,9 @@
         "git_rebase_init": {
           "args": {
             "out": {
-              "ownedBy": ["repo"]
+              "ownedBy": [
+                "repo"
+              ]
             },
             "upstream": {
               "isOptional": true
@@ -2963,7 +3020,9 @@
           "args": {
             "out": {
               "isSelf": true,
-              "ownedBy": ["repo"]
+              "ownedBy": [
+                "repo"
+              ]
             }
           }
         },
@@ -3003,7 +3062,9 @@
         "git_refdb_open": {
           "args": {
             "out": {
-              "ownedBy": ["repo"]
+              "ownedBy": [
+                "repo"
+              ]
             }
           }
         }
@@ -3109,7 +3170,9 @@
         "git_reflog_read": {
           "args": {
             "out": {
-              "ownedBy": ["repo"]
+              "ownedBy": [
+                "repo"
+              ]
             }
           }
         },
@@ -3650,10 +3713,10 @@
         }
       }
     },
-	  "signature": {
+    "signature": {
       "selfFreeing": true,
       "dupFunction": "git_signature_dup",
-	    "functions": {
+      "functions": {
         "git_signature_default": {
           "isAsync": true,
           "return": {
@@ -3666,9 +3729,9 @@
         "git_signature_free": {
           "ignore": true
         },
-	      "git_signature_new": {
-	        "isAsync": false
-	      },
+        "git_signature_new": {
+          "isAsync": false
+        },
         "git_signature_now": {
           "isAsync": false,
           "args": {
@@ -3680,8 +3743,8 @@
             "isErrorCode": true
           }
         }
-	    }
-	  },
+      }
+    },
     "smart": {
       "functions": {
         "git_smart_subtransport_git": {
@@ -3760,7 +3823,9 @@
         "git_status_byindex": {
           "isAsync": false,
           "return": {
-            "ownedBy": ["statuslist"]
+            "ownedBy": [
+              "statuslist"
+            ]
           }
         },
         "git_status_file": {
@@ -3820,7 +3885,9 @@
           "isAsync": true,
           "args": {
             "out": {
-              "ownedBy": ["repo"]
+              "ownedBy": [
+                "repo"
+              ]
             },
             "opts": {
               "isOptional": true
@@ -4168,7 +4235,9 @@
         "git_transaction_new": {
           "args": {
             "out": {
-              "ownedBy": ["repo"]
+              "ownedBy": [
+                "repo"
+              ]
             }
           }
         }
@@ -4355,7 +4424,9 @@
         "git_treebuilder_new": {
           "args": {
             "out": {
-              "ownedBy": ["repo"]
+              "ownedBy": [
+                "repo"
+              ]
             },
             "source": {
               "isOptional": true
@@ -4404,7 +4475,9 @@
         "git_worktree_add": {
           "args": {
             "out": {
-              "ownedBy": ["repo"]
+              "ownedBy": [
+                "repo"
+              ]
             }
           }
         },
@@ -4420,14 +4493,18 @@
         "git_worktree_lookup": {
           "args": {
             "out": {
-              "ownedBy": ["repo"]
+              "ownedBy": [
+                "repo"
+              ]
             }
           }
         },
         "git_worktree_open_from_repository": {
           "args": {
             "out": {
-              "ownedBy": ["repo"]
+              "ownedBy": [
+                "repo"
+              ]
             }
           }
         },
