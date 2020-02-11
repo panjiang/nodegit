@@ -407,16 +407,6 @@
               "jsClassName": "Buffer",
               "cType": "git_buf *",
               "shouldAlloc": true
-            },
-            "repo": {
-              "cppClassName": "GitRepository",
-              "jsClassName": "Repo",
-              "cType": "git_repository *"
-            },
-            "canonical_branch_name": {
-              "cppClassName": "String",
-              "jsClassName": "String",
-              "cType": "const char *"
             }
           },
           "return": {
@@ -426,7 +416,7 @@
         "git_branch_set_upstream": {
           "isAsync": true,
           "args": {
-            "upstream_name": {
+            "branch_name": {
               "isOptional": true
             }
           },
@@ -496,6 +486,9 @@
         "../include/git_buf_converter.h"
       ]
     },
+    "cert": {
+      "needsForwardDeclaration": false
+    },
     "cert_hostkey": {
       "fields": {
         "hash_md5": {
@@ -505,6 +498,10 @@
         "hash_sha1": {
           "cppClassName": "String",
           "size": 20
+        },
+        "hash_sha256": {
+          "cppClassName": "String",
+          "size": 32
         }
       }
     },
