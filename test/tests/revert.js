@@ -10,6 +10,7 @@ describe("Revert", function() {
 
   var Revert = NodeGit.Revert;
   var RevertOptions = NodeGit.RevertOptions;
+  var Status = NodeGit.Status;
 
   var test;
   var fileName = "foobar.js";
@@ -37,28 +38,27 @@ describe("Revert", function() {
     var fileStats = fs.statSync(path.join(repoPath, fileName));
     assert.ok(fileStats.isFile());
 
-    Revert.revert(test.repository, test.firstCommit, new RevertOptions())
+    return Revert.revert(test.repository, test.firstCommit, new RevertOptions())
       .then(function() {
         try {
           fs.statSync(path.join(repoPath, fileName));
-          assert.fail("Working directory was not reverted");
+        } catch (e) {
+          // we expect this not to exist
+          return;
         }
-        catch (error) {
-          // pass
-        }
+
+        assert.fail("Working directory was not reverted");
       });
   });
 
   it("revert modifies the index", function() {
-    Revert.revert(test.repository, test.firstCommit, new RevertOptions())
-    .then(function() {
-      return test.repository.index();
-    })
-    .then(function(index) {
-      var entries = index.entries;
-      assert.equal(1, entries.length);
-      assert.ok(_.endsWith(fileName, entries[0].path));
-    });
+    return Revert.revert(test.repository, test.firstCommit, new RevertOptions())
+      .then(() => test.repository.getStatus())
+      .then((status) => {
+        assert.equal(1, status.length);
+        assert.ok(_.endsWith(fileName, status[0].path()));
+        assert.equal(Status.STATUS.INDEX_DELETED, status[0].statusBit());
+      });
   });
 
   it("RevertOptions is optional (unspecified)", function() {

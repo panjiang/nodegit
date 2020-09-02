@@ -1,5 +1,64 @@
 # Change Log
 
+## <a name="v0-27-0" href="#v0-27-0">v0.27.0</a> [(2020-07-28)](https://github.com/nodegit/nodegit/releases/tag/v0.27.0)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.26.5...v0.27.0)
+
+#### Summary of changes
+- Expose git_remote_rename
+- Bump OpenSSL from 1.1.0i -> 1.1.1c in Windows/Mac OS Electron builds
+- Replace unmaintained request library with got
+- Remove promisify-node and use vanilla promises for all NodeGit promises
+- Prebuilds for Node 14, deprecate Node 8
+- Persist RemoteCallbacks and ProxyOptions on the remote if using Remote.prototype.connect. This fixes a segfault when using any routines on a connected remote.
+
+### #Merged PRs into NodeGit
+- [Upgrade build environments #1785](https://github.com/nodegit/nodegit/pull/1785)
+- [Remote needs to persist the callback/proxyOpts/headers #1784](https://github.com/nodegit/nodegit/pull/1784)
+- [Remove promisify-node and remove old callback api remnants](https://github.com/nodegit/nodegit/pull/1772)
+- [Replace deprecated package request with got](https://github.com/nodegit/nodegit/pull/1771)
+- [Bump OpenSSL prebuilt to 1.1.1c](https://github.com/nodegit/nodegit/pull/1770)
+- [Expose git_remote_rename](https://github.com/nodegit/nodegit/pull/1767)
+- [Dedupe Remote.prototype.fetch](https://github.com/nodegit/nodegit/pull/1766)
+
+## <a name="v0-27-0-alpha-1" href="#v0-27-0-alpha-1">v0.27.0-alpha.1</a> [(2020-03-26)](https://github.com/nodegit/nodegit/releases/tag/v0.27.0-alpha.1)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.26.5...v0.27.0-alpha.1)
+
+#### Summary of changes
+- Expose git_remote_rename
+- Bump OpenSSL from 1.1.0i -> 1.1.1c in Windows/Mac OS Electron builds
+- Replace unmaintained request library with got
+- Remove promisify-node and use vanilla promises for all NodeGit promises
+
+### #Merged PRs into NodeGit
+- [Remove promisify-node and remove old callback api remnants](https://github.com/nodegit/nodegit/pull/1772)
+- [Replace deprecated package request with got](https://github.com/nodegit/nodegit/pull/1771)
+- [Bump OpenSSL prebuilt to 1.1.1c](https://github.com/nodegit/nodegit/pull/1770)
+- [Expose git_remote_rename](https://github.com/nodegit/nodegit/pull/1767)
+- [Dedupe Remote.prototype.fetch](https://github.com/nodegit/nodegit/pull/1766)
+
+
+## <a name="v0-26-5" href="#v0-26-5">v0.26.5</a> [(2020-02-27)](https://github.com/nodegit/nodegit/releases/tag/v0.26.5)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.26.4...v0.26.5)
+
+#### Summary of changes
+- Bring in improvement to client certificate handling on Windows from [winhttp: support optional client cert #5384](https://github.com/libgit2/libgit2/pull/5384)
+- `Commit.prototype.parent()` now correctly assigns the repo property on the retrieved commit. This should solve certain bugs when working with a commit retrieved from `parent`.
+
+#### Merged PRs into NodeGit
+- [Bring in Libgit2 #5384 to NodeGit](https://github.com/nodegit/nodegit/pull/1758)
+- [Fix behavior of Commit#parent](https://github.com/nodegit/nodegit/pull/1509)
+- [Remove DiffList](https://github.com/nodegit/nodegit/pull/1733)
+- [Remove unnecessary assignment of Commit#repo](https://github.com/nodegit/nodegit/pull/1508)
+
+#### Merged PRs into LibGit2
+- [winhttp: support optional client cert #5384](https://github.com/libgit2/libgit2/pull/5384)
+- [Support `core.longpaths` on Windows #5347](https://github.com/libgit2/libgit2/pull/5347)
+- [Parallelize checkout_create_the_new for perf #4205](https://github.com/libgit2/libgit2/pull/4205)
+
+
 ## <a name="v0-26-4" href="#v0-26-4">v0.26.4</a> [(2020-01-14)](https://github.com/nodegit/nodegit/releases/tag/v0.26.4)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.26.3...v0.26.4)

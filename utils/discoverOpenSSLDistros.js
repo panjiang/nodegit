@@ -2,7 +2,7 @@ const cheerio = require("cheerio");
 const fse = require("fs-extra");
 const path = require("path");
 const R = require("ramda");
-const request = require("request-promise-native");
+const got = require("got");
 
 const windowsCommonConditions = [
   R.test(/^\s*os=Windows$/gm),
@@ -60,7 +60,7 @@ const debugPairs = R.toPairs({
     R.test(/^\s*compiler\.runtime=MTd$/gm),
     R.test(/^\s*compiler\.version=15$/gm)
   ]),
-  
+
   "macOS-clang-9-static-debug": R.allPass([
     ...macCommonConditions,
     R.test(/^\s*build_type=Debug$/gm),
@@ -133,13 +133,13 @@ const releasePairs = R.toPairs({
 const distributionPairs = [...debugPairs, ...releasePairs];
 
 const getDistributionConfigURLFromHash = itemHash =>
-  `https://dl.bintray.com/conan-community/conan/conan/OpenSSL/1.1.0i/stable/package/${itemHash}/conaninfo.txt`;
+  `https://dl.bintray.com/conan-community/conan/conan/OpenSSL/1.1.1c/stable/0/package/${itemHash}/0/conaninfo.txt`;
 
 const getDistributionDownloadURLFromHash = itemHash =>
-  `https://dl.bintray.com/conan-community/conan/conan/OpenSSL/1.1.0i/stable/package/${itemHash}/conan_package.tgz`;
+  `https://dl.bintray.com/conan-community/conan/conan/OpenSSL/1.1.1c/stable/0/package/${itemHash}/0/conan_package.tgz`;
 
 const getDistributionsRootURL = () =>
-  "https://dl.bintray.com/conan-community/conan/conan/OpenSSL/1.1.0i/stable/package/";
+  "https://dl.bintray.com/conan-community/conan/conan/OpenSSL/1.1.1c/stable/0/package/";
 
 const detectDistributionPairFromConfig = (itemHash, body) => R.pipe(
   R.find(([_, predicate]) => predicate(body)),
@@ -149,8 +149,8 @@ const detectDistributionPairFromConfig = (itemHash, body) => R.pipe(
 )(distributionPairs);
 
 const getDistributionConfig = (itemHash) =>
-  request.get(getDistributionConfigURLFromHash(itemHash))
-    .then((body) => detectDistributionPairFromConfig(itemHash, body));
+  got(getDistributionConfigURLFromHash(itemHash))
+    .then(({ body }) => detectDistributionPairFromConfig(itemHash, body));
 
 const discoverDistributions = (treeHtml) => {
   const releaseHashes = [];
@@ -176,8 +176,8 @@ const writeFile = (distributions) =>
     .then(fse.writeFile(outputPath, JSON.stringify(distributions, null, 2)));
 
 const outputPath = path.resolve(__dirname, "..", "vendor", "static_config", "openssl_distributions.json");
-request(getDistributionsRootURL())
-  .then(discoverDistributions)
+got(getDistributionsRootURL())
+  .then(({ body }) => discoverDistributions(body))
   .then(R.filter(R.identity))
   .then(R.sortBy(R.prop(0)))
   .then(R.fromPairs)
